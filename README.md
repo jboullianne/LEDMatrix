@@ -1,5 +1,15 @@
-# led-matrix-api
-Python API for drawing on a RGB LED Matrix display
+# LEDMatrix
+LEDMAtrix is a Python library used to draw and animate on an RGB LED Matrix Board.
+
+## Creator
+
+**LEDMatrix** was created by and is maintained by **Jean-Marc Boullianne**, Undergraduate Student at the [University of Rochester](https://www.cs.rochester.edu/).
+
+**LEDMatrix** is based on the [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix) library created by [Henner Zeller](h.zeller@acm.org).
+
+## Copyright and License
+
+[GNU General Public License Version 2.0](http://www.gnu.org/licenses/gpl-2.0.txt)
 
 ### API
 
