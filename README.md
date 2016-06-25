@@ -7,10 +7,11 @@ Python API for drawing on a RGB LED Matrix display
 
 ```python
 # Constructor for LEDMatrix
-matrix = LEDMatrix(32, 2) // 32x32 pixels...2 chained together
+matrix = LEDMatrix(32, 2) # 32x32 pixels...2 chained together
 ```
 
 #### Functions
+Not all functions listed.
 
 ```python
 
