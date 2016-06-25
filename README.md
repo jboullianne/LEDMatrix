@@ -11,7 +11,7 @@ matrix = LEDMatrix(32, 2) # 32x32 pixels...2 chained together
 ```
 
 #### Functions
-Not all functions listed.
+###### Not all functions listed.
 
 ```python
 
