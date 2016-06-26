@@ -94,3 +94,96 @@ class LEDSquare:
 	def destroy(self):
 		self.matrix.obj_list.remove(self)
 
+class LEDPoint:
+
+	def __init__(self, x, y, rgb, matrix):
+		self.x = x
+		self.y = y
+		self.rgb = rgb
+		self.matrix = matrix
+		self.matrix.obj_list += [self]
+
+	def draw(self):
+		self.matrix.setPixel(self.x, self.y, self.rgb)
+
+	def setX(self, x):
+		self.x = x
+
+	def setY(self, y):
+		self.y = y
+
+	def setRGB(self, r, g, b):
+		self.rgb = (r,g,b)
+
+	def destroy(self):
+		self.matrix.obj_list.remove(self)
+
+class LEDPointList:
+
+	def __init__(self, matrix):
+		self.matrix = matrix
+		self.matrix.obj_list += [self]
+		self.p_list = []
+
+	def draw(self):
+		print len(self.p_list) , "IN draw"
+		for point in self.p_list:
+			point.draw()
+
+	def setRGBAll(self, r, g, b):
+		for point in self.p_list:
+			point.rgb = (r,g,b)
+
+	def setRGBAt(self, index, r, g, b):
+		self.p_list[index].rgb = (r,g,b)
+
+	def add(self, led_point):
+		self.p_list += [led_point]
+		self.matrix.obj_list.remove(led_point)
+
+	def removePoint(self, led_point):
+		self.p_list.remove(led_point)
+
+	def destroy(self):
+		self.matrix.obj_list.remove(self)
+
+	def pop(self, index):
+		print len(self.p_list)
+		self.p_list.pop(index)
+		print len(self.p_list)
+
+class LEDLine:
+
+	def __init__(self, x1, y1, x2, y2, rgb, matrix):
+		self.x1 = x1
+		self.x2 = x2
+		self.y1 = y1
+		self.y2 = y2
+		self.rgb = rgb
+		self.matrix = matrix
+		self.matrix.obj_list += [self]
+
+	def draw(self):
+		slope = (self.y2 - self.y1)/(self.x2 - self.x1)
+		# positive slope
+		for x in range(self.x1, self.x2 + 1):
+			y = slope * (x - self.x1) + self.y1
+			self.matrix.setPixel(self.x1 + x, y, self.rgb)
+			print x, y
+		# negative slope
+		for x in range(self.x2, self.x1 + 1):
+			y = slope * (x - self.x2) + self.y2
+			self.matrix.setPixel(self.x2 + x, y, self.rgb)
+			print x, y
+
+	def setRGB(self, r, g, b):
+		self.rgb = (r, g, b)
+
+
+	def destroy(self):
+		self.matrix.obj_list.remove(self)
+
+
+
+
+

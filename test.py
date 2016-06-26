@@ -16,6 +16,7 @@ def main():
 	#matrix.fillRect(0,0,15,15, (0,0,255))
 	#time.sleep(1)
 
+	'''
 	square = LEDSquare(15,0,30,15, (255,0,0), matrix)
 	matrix.refresh()
 	time.sleep(1)
@@ -59,6 +60,51 @@ def main():
 
 	time.sleep(1)
 
+	# Construct New LEDPoint
+	p1 = LEDPoint(0, 0, (255, 0, 0), matrix)
+	matrix.refresh()
+	time.sleep(1)
+
+	# Animate it up/down left/right
+	for x in range(0, 15):
+		for y in range(0, 15):
+			p1.setY(y)
+			matrix.refresh()
+			time.sleep(0.01)
+
+		p1.setX(x)
+		p1.setY(0)
+		matrix.refresh()
+		time.sleep(0.01)
+
+	time.sleep(1)
+	
+	pList = LEDPointList(matrix)
+	pList.add(LEDPoint(0,0, (0,0,255), matrix))
+	pList.add(LEDPoint(1,0, (255,0,255), matrix))
+	pList.add(LEDPoint(2,0, (0,255,255), matrix))
+	pList.add(LEDPoint(3,0, (255,255,0), matrix))
+	matrix.refresh()
+	time.sleep(1)
+
+	pList.setRGBAll(0,0,255)
+	matrix.refresh()
+	time.sleep(1)
+
+	pList.pop(0)
+	pList.pop(1)
+	matrix.refresh()
+	time.sleep(1)
+
+	matrix.setBG(0xFF0000)
+	matrix.refresh()'''
+
+	line = LEDLine(0,0, 15, 15, (0,0,255), matrix)
+	line2 = LEDLine(15,0, 0, 15, (0,0,255), matrix)
+	matrix.refresh()
+	time.sleep(1)
+
+	time.sleep(1)
 	# Clears the entire matrix LED board
 	matrix.clear()
 
