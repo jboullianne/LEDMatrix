@@ -1,5 +1,5 @@
 # LEDMatrix
-LEDMAtrix is a Python library used to draw and animate on an RGB LED Matrix Board.
+LEDMAtrix is a Python library used to draw and animate on an RGB LED Matrix Board connected via GPIO.
 
 ## Creator
 
