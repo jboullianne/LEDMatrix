@@ -7,7 +7,7 @@ def main():
 	print "Starting LEDMatrix Test"
 
 	# Constructing LEDMatrix
-	matrix = LEDMatrix(32, 2)
+	matrix = Matrix(32, 2)
 
 	# Set Background Green
 	matrix.setBG(0x00FF00)
