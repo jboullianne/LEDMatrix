@@ -13,6 +13,10 @@ def main():
 	matrix.setBG(0x00FF00)
 	time.sleep(1)
 
+	matrix.setBoard(0, (255, 0, 0))
+	matrix.setBoard(1, (0, 0, 255))
+	time.sleep(1)
+
 	#matrix.fillRect(0,0,15,15, (0,0,255))
 	#time.sleep(1)
 

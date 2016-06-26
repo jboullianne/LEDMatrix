@@ -15,6 +15,9 @@ class Matrix:
 		self.BG = hex_color
 		self.drawBG()
 
+	def setBoard(self, board_num, rgb):
+		self.fillRect(board_num*self.MAX_Y, 0, board_num*self.MAX_Y + self.MAX_Y, self.MAX_Y, rgb)
+
 	def drawBG(self):
 		self.matrix.Fill(self.BG)
 
