@@ -6,7 +6,6 @@ class LEDPointList:
 		self.p_list = []
 
 	def draw(self):
-		print len(self.p_list) , "IN draw"
 		for point in self.p_list:
 			point.draw()
 
