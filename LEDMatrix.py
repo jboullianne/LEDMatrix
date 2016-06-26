@@ -3,7 +3,7 @@ import Image
 import ImageDraw
 
 # Ease of Use API For Matrix
-class MatrixDriver:
+class LEDMatrix:
 	
 	def __init__(self, height, chains):
 		self.matrix = Adafruit_RGBmatrix(height, chains)
