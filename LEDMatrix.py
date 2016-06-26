@@ -9,9 +9,14 @@ class LEDMatrix:
 		self.matrix = Adafruit_RGBmatrix(height, chains)
 		self.MAX_Y = height
 		self.MAX_X = height * chains
+		self.obj_list = []
 
-	def setFill(self, hex_color):
-		self.matrix.Fill(hex_color)
+	def setBG(self, hex_color):
+		self.BG = hex_color
+		self.drawBG()
+
+	def drawBG(self):
+		self.matrix.Fill(self.BG)
 
 	def clear(self):
 		self.matrix.Clear()
@@ -40,6 +45,12 @@ class LEDMatrix:
 				else:
 					self.setPixel(y, x, (rgb[0], rgb[1], rgb[2]))
 
+	def refresh(self):
+		self.drawBG()
+
+		for obj in self.obj_list:
+			obj.draw()
+
 class LEDSquare:
 	def __init__(self, x1, y1, x2, y2, rgb, matrix):
 		self.x1 = x1
@@ -48,12 +59,38 @@ class LEDSquare:
 		self.y2 = y2
 		self.rgb = rgb
 		self.matrix = matrix
-		self.draw()
+		self.matrix.obj_list += [self]
 
 	def draw(self):
 		self.matrix.fillRect(self.x1, self.y1, self.x2, self.y2, self.rgb)
 
+	def setX(self, x):
+		width = self.x2 - self.x1
+		self.x1 = x
+		self.x2 = x + width
+
+	def setY(self, y):
+		height = self.y2 - self.y1
+		self.y1 = y
+		self.y2 = y + height
+
 	def moveX(self, x):
 		self.x1 += x
 		self.x2 += x
-		self.draw()
+
+	def moveY(self, y):
+		self.y1 += y
+		self.y2 += y
+
+	def setWidth(self, width):
+		self.x2 = self.x1 + width
+
+	def setHeight(self, height):
+		self.y2 = self.y1 + height
+
+	def setRGB(self, r, g, b):
+		self.rgb = (r,g,b)
+
+	def destroy(self):
+		self.matrix.obj_list.remove(self)
+
