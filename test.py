@@ -1,8 +1,7 @@
 # LEDMatrix Library Test Script
 # Running on a 2 32x32 LED Matrix boards
 import time
-from LEDMatrix import LEDMatrix
-from LEDMatrix import LEDSquare
+from LEDMatrix import *
 
 def main():
 	print "Starting LEDMatrix Test"
