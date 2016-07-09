@@ -107,6 +107,18 @@ def main():
 	line2 = LEDLine(15,0, 0, 15, (0,0,255), matrix)
 	matrix.refresh()
 	time.sleep(1)
+	line.destroy()
+	line2.destroy()
+
+	matrix.clear()
+	matrix.setBG(0x000000)
+	matrix.refresh()
+
+	text1 = LEDText(0,0, (255,255,255), "{ } [ ] | \\ ", matrix)
+	text2 = LEDText(0,5, (255,255,255), ": ; \' < > , . ?", matrix)
+
+	matrix.refresh()
+	time.sleep(1)
 
 	time.sleep(1)
 	# Clears the entire matrix LED board
