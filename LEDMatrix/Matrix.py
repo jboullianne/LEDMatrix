@@ -10,6 +10,7 @@ class Matrix:
 		self.MAX_Y = height
 		self.MAX_X = height * chains
 		self.obj_list = []
+		self.setBG(0x000000)
 
 	def setBG(self, hex_color):
 		self.BG = hex_color
@@ -53,3 +54,6 @@ class Matrix:
 
 		for obj in self.obj_list:
 			obj.draw()
+
+	def getMatrix(self):
+		return self.matrix
